@@ -16,7 +16,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  height: 22.5rem;
+  height: fit-content;
   min-width: 50%;
   margin-inline: auto;
   background-color: #fff;

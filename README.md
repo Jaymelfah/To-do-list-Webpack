@@ -1,18 +1,17 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Awesome Books
-In this project, I refactored the Awesome books application to use JavaScript modules.
+# To Do List
+In this project, I built a simple HTML list of To Do tasks. The list will be styled according to the specifications listed later in this lesson. The simple web page will be built using webpack and served by a webpack dev server.
 
  ## Learning objectives
 - Use JavaScript modules
-- Use a medium-fidelity wireframe to create a UI.
+- Use webpack to bundle JavaScript.
+- Learn how to use proper ES6 syntax.
+- Use ES6 modules to write modular JavaScript.
 
 ## Built With
 
-- HTML, CSS, JavaScript
-
-## Live Demo
-You can view the website [here](https://jaymelfah.github.io/Awesome-books/)
+- HTML, CSS, JavaScript, Webpack
 
 
 
