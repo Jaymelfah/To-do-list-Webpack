@@ -1,9 +1,10 @@
 import './style.css';
 import Todolist, {
-  addListItem,
+  addListItem, list,
 } from './modules/class.js';
 
 const enterKey = document.getElementById('enter-key');
+const clearButton = document.querySelector('.clr-btn');
 
 document.addEventListener('DOMContentLoaded', () => {
   Todolist.createList();
@@ -29,4 +30,12 @@ document.addEventListener('click', (event) => {
   if (event.target.classList.contains('to-do')) {
     event.target.parentElement.classList.add('backyellow');
   }
+});
+
+// Function to clear all checked boxes
+clearButton.addEventListener('click', () => {
+  const filteredList = list.filter((obj) => obj.complete !== true);
+  localStorage.setItem('listStorage', JSON.stringify(filteredList));
+  Todolist.createList();
+  window.location.reload();
 });
