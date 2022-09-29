@@ -7,11 +7,21 @@
     <script src="https://kit.fontawesome.com/a738fb17fd.js" crossorigin="anonymous"></script>
 <script defer src="/runtime.bundle.js"></script><script defer src="/main.bundle.js"></script></head>
 <body>
-    <div class="container">
-        <h1>Helloooo</h1>
-        <ul class="todolist"></ul>
-        
-    </div>
-    <script src="./index.js"></script>
+    <section class="main-section">
+        <div class="container">
+            <div class="heading">
+                <h3 class="list-header">Today's To Do</h3>
+                <span><i class="fa-solid fa-rotate"></i></span>
+            </div>
+            <div class="input-items">
+                <input id="inputs" class="input-text" type="text" placeholder="Add to your list...">
+                <span><i id="enter-key" class="fa-sharp fa-solid fa-arrow-left-long arrow icon "></i></span>
+            </div>
+            <ul class="todolist"></ul>
+            <div class="clear">
+                <button class="clr-btn">Clear all completed</button>
+            </div>  
+        </div>
+    </section>
 </body>
 </html>
