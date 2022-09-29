@@ -1,7 +1,6 @@
 const list = JSON.parse(localStorage.getItem('listStorage')) || [];
 const addListItem = document.getElementById('inputs');
 const listContainer = document.querySelector('.todolist');
-
 export const trashCan = document.querySelectorAll('.delete');
 
 export default class Todolist {
@@ -13,10 +12,12 @@ export default class Todolist {
 
   static createList = () => {
     const listContainer = document.querySelector('.todolist');
-    const displayList = list.map((list, index) => `<li class="list-item " id="${index}"><div class="inline"><input id="box-check" type=checkbox name="checkbox"></div> <input type="text" class="to-do input-text" value="${list.description}" ><div class="ellipsis-container"><i class="fa-solid fa-ellipsis-vertical"></i><i class="fa-solid fa-trash-can icon delete"></i></div></li>`).join('');
+    const displayList = list.map((list, index) => `<li class="list-item " id="${index}"><div class="inline"><input id="box-check" type=checkbox class="box-check" name="checkbox"></div> <input type="text" class="to-do input-text" value="${list.description}" ><div class="ellipsis-container"><i class="fa-solid fa-ellipsis-vertical"></i><i class="fa-solid fa-trash-can icon delete"></i></div></li>`).join('');
     listContainer.innerHTML = displayList;
     const ellipsis = document.querySelectorAll('.fa-ellipsis-vertical');
     const removeItem = document.querySelectorAll('.delete');
+    const checkBox = document.querySelectorAll('.box-check');
+
     removeItem.forEach((del, i) => {
       del.addEventListener('click', () => {
         Todolist.deleteItem(i);
@@ -38,6 +39,17 @@ export default class Todolist {
         ellipsis[i].style.display = 'none';
       });
     }
+    // To check whether a box has been checked
+    checkBox.forEach((check, index) => {
+      check.addEventListener('change', () => {
+        if (check.checked === true) {
+          list[index].complete = true;
+        } else {
+          list[index].complete = false;
+        }
+        localStorage.setItem('listStorage', JSON.stringify(list));
+      });
+    });
   };
 
   static addToList = () => {
