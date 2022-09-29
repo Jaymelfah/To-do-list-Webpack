@@ -29,7 +29,7 @@ enterKey.addEventListener('click', () => {
 document.addEventListener('click', (event) => {
   if (event.target.classList.contains('to-do')) {
     event.target.parentElement.classList.add('backyellow');
-  }
+  } else { event.target.parentElement.classList.remove('backyellow'); }
 });
 
 // Function to clear all checked boxes

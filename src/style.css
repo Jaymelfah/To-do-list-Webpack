@@ -125,3 +125,8 @@ input[type="checkbox"] {
 .strikethrough {
   text-decoration: line-through;
 }
+
+.to-do {
+  text-decoration: none;
+  display: inline;
+}

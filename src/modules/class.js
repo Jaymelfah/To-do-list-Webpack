@@ -25,7 +25,10 @@ export default class Todolist {
     });
     const todo = document.querySelectorAll('.to-do');
     todo.forEach((item, index) => {
-      item.addEventListener('change', () => {
+      item.addEventListener('change', (event) => {
+        event.target.parentElement.classList.remove('backyellow');
+        event.target.parentElement.children[2].children[0].style.display = 'inline';
+        event.target.parentElement.children[2].children[1].style.display = 'none';
         if (item.value) {
           list[index].description = item.value;
           localStorage.setItem('listStorage', JSON.stringify(list));
@@ -41,11 +44,14 @@ export default class Todolist {
     }
     // To check whether a box has been checked
     checkBox.forEach((check, index) => {
-      check.addEventListener('change', () => {
+      check.addEventListener('change', (event) => {
         if (check.checked === true) {
+          event.target.parentElement.parentElement.children[1].style.textDecoration = 'line-through';
+          event.target.parentElement.parentElement.children[1].style.textDecorationColor = 'red';
           list[index].complete = true;
         } else {
           list[index].complete = false;
+          event.target.parentElement.parentElement.children[1].style.textDecoration = 'none';
         }
         localStorage.setItem('listStorage', JSON.stringify(list));
       });
