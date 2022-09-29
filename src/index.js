@@ -1,31 +1,32 @@
 import './style.css';
+import Todolist, {
+  addListItem,
+} from './modules/class.js';
 
-const list = [
-  {
-    description: 'Walk the dog',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'Take the car to the mechanic',
-    completed: false,
-    index: 2,
-  },
-  {
-    description: 'Do the laundry',
-    completed: false,
-    index: 3,
-  },
-  {
-    description: 'Buy groceries',
-    completed: false,
-    index: 4,
-  },
-];
+const enterKey = document.getElementById('enter-key');
+
 document.addEventListener('DOMContentLoaded', () => {
-  const listContainer = document.querySelector('.todolist');
-  list.forEach((list) => {
-    const listHtml = `<li class="list-item" id="${list.index}"> <div><i class="fa-regular fa-square-full"></i> <span class="task">${list.description}</span></div><i class="fa-solid fa-ellipsis-vertical"></i></li>`;
-    listContainer.insertAdjacentHTML('beforeend', listHtml);
-  });
+  Todolist.createList();
+});
+
+// Function for enter key to add books
+addListItem.addEventListener('keypress', (event) => {
+  if (event.key === 'Enter') {
+    Todolist.addToList();
+    Todolist.createList();
+    addListItem.value = '';
+  }
+});
+
+// Function to click and add books
+enterKey.addEventListener('click', () => {
+  Todolist.addToList();
+  Todolist.createList();
+  document.querySelector('.input-text').value = '';
+});
+
+document.addEventListener('click', (event) => {
+  if (event.target.classList.contains('to-do')) {
+    event.target.parentElement.classList.add('backyellow');
+  }
 });

@@ -69,6 +69,8 @@ body {
 
 .input-text {
   border: none;
+  background-color: transparent;
+  width: 90%;
 }
 
 .input-text:focus {
@@ -77,4 +79,40 @@ body {
 
 i {
   color: rgba(128, 128, 128, 0.92);
+  cursor: pointer;
+}
+
+#ellipsis {
+  cursor: move;
+  display: inline;
+}
+
+.backyellow {
+  background-color: rgba(255, 217, 0, 0.169);
+}
+
+.inline {
+  display: inline;
+}
+
+.fa-trash-can {
+  display: none;
+}
+
+.fa-trash-can:hover {
+  color: red;
+}
+
+input[type="checkbox"] {
+  height: 20px;
+  width: 20px;
+  color: green;
+}
+
+.checkbox:checked::before {
+  background-color: green;
+}
+
+.fa-ellipsis-vertical {
+  cursor: move;
 }
